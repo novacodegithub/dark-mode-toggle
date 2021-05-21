@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dark Mode Toggle</title>
+   <link rel="stylesheet" href="stylesheet.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js"></script>
+   <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+   <div class="wrapper">
+      <div class="nav">
+         <div class="brand">Novacode</div>
+         <div class="menu">Menu</div>
+      </div>
+      <div class="content">
+         <h1>Say a simple hello!</h1>
+      </div>
+      <div class="toggle"><ion-icon name="contrast-outline"></ion-icon></div>
+   </div>
+   <script>
+      var t1 = new TimelineMax({paused: true});
+
+      t1.to(".wrapper", 0.5, {
+         filter: "invert(1)",
+         ease: Power4.easeInOut
+      });
+
+      t1.reverse();
+      $(document).on("click", ".toggle", function() {
+         t1.reversed(!t1.reversed());
+      });
+   </script>
+</body>
+</html>
